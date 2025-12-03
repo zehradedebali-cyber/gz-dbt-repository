@@ -1,0 +1,59 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: gz_raw_data
+    tables:
+      - name: sales
+        identifier: raw_gz_sales
+        description: "sales of Greenweez / her orders_id'de bulunan bir product_id için bir satırımız var"
+        columns:
+          - name: date_date
+
+          - name: orders_id
+            description: "Foreign Key for ship"
+
+          - name: products_id
+            description: "Foreign Key for product"
+
+          - name: revenue
+            description: "the amount paid by the customer to purchase the product. revenue = quantity * selling_price"
+
+          - name: quantity
+            description: "the quantity of products purchased for a given order"
+                    
+
+      - name: ship
+        identifier: raw_gz_ship
+        description: shipping data for Greenweez
+
+        columns:
+
+          - name: orders_id
+            description: Foregin Key for ship
+            tests:
+              - unique
+              - not_null
+
+          - name: shipping_fee
+            description: the price customers pay for shipping
+
+          - name: logcost
+            description: the cost of preparing the parcel in the distribution centre/warehouse
+
+          - name: ship_cost
+            description: shipping cost paid by Greenweez to the carrier/logistics provider
+
+      - name: product
+        identifier: raw_gz_product
+
+        columns:
+
+          - name: products_id
+            description: Primary Key
+            tests:
+              - unique
+              - not_null
+
+          - name: purchase_price
+            description: the purchase price of the product
