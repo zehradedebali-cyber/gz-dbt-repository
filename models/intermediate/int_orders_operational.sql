@@ -13,5 +13,5 @@ select
     s.logcost
 from {{ref("int_orders_margin")}} o
 left join {{ref("stg_raw__ship")}} s using (orders_id)
-order by order_id desc
+order by orders_id desc
 
