@@ -12,4 +12,4 @@ from {{(int_orders_operatinal)}} o
 left join {{(stg_raw__ship)}} s 
 using (orders_id)
 group by orders_id, date_date
-order by date_date desc;
+order by date_date desc
