@@ -11,6 +11,7 @@ select
     s.shipping_fee,
     s.ship_cost,
     s.logcost
-from {{ref("int_orders_operational")}} o
+from {{ref("int_orders_margin")}} o
 left join {{ref("stg_raw__ship")}} s using (orders_id)
+order by order_id desc
 
