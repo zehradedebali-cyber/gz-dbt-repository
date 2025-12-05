@@ -37,7 +37,6 @@ models:
   my_new_project:
     +materialized: view
 
-   
     mart:
       +materialized: table
 
