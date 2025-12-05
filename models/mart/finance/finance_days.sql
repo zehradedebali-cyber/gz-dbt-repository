@@ -1,3 +1,5 @@
+
+
 select 
         date_date,
         count (DISTINCT orders_id) as cnt_orders,
@@ -11,6 +13,6 @@ select
         round(sum(logcost),2) as total_logcost,
         round(sum(quantity),2) as total_quantity
 
-from {{ref("int_orders_operational")}}
+from {{ref('int_orders_operational')}}
 group by date_date
 order by date_date desc
